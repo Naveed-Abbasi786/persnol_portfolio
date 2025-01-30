@@ -1,7 +1,10 @@
+// app/layout.tsx (aapka layout file)
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import StoreProvider from "@/app/storeProvider";
+import Layout from "@/component/layout/page";
+import Loader from "@/component/partials/loader/page";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,12 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <Loader/> 
+        <Layout>{children}</Layout>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }
