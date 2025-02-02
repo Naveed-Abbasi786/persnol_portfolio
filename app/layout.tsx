@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/app/storeProvider";
-import Layout from "@/component/layout/page";
-import Loader from "@/component/partials/loader/page";
+import Layout from "@/component/layout";
+import Loader from "@/component/partials/animation";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

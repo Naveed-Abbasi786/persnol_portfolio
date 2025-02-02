@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Sidebar from "../sideBarNav/page";
+import Sidebar from "../sideBarNav";
 import { Icon } from "@iconify/react";
 export default function mobileNavigation() {
   const [isMenuBarOpen, setIsMenuBarOpen] = useState<boolean>(false);

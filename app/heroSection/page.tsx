@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import Setting from "@/component/partials/setting/page";
+import Setting from "@/component/partials/setting";
 import Image from "next/image";
 import ProfileImage from "@/public/assets/img/profile.jpg";
-import Button from "@/component/button/page";
-import Sidebar from "@/component/partials/sideBarNav/page";
+import Button from "@/component/button";
+import Sidebar from "@/component/partials/sideBarNav";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 export default function Page() {

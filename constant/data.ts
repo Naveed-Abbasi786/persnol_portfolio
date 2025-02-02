@@ -44,3 +44,20 @@ export const colors: colorIcons[] = [
   { color: "#E7592A", icon: Orange, isColor: false },
   { color: "#E62E2D", icon: Red, isColor: false },
 ];
+
+
+// Skills
+interface Skill {
+  skill: string;
+  percentage: number;
+}
+export const skills:Skill[]= [
+  { skill: 'HTML', percentage: 89 },
+  { skill: 'CSS', percentage: 70 },
+  { skill: 'JavaScript', percentage: 66 },
+  { skill: 'React', percentage: 95 },
+  { skill: 'Angular', percentage: 50 },
+  { skill: 'PHP', percentage: 65 },
+  { skill: 'WordPress', percentage: 45 },
+  { skill: 'jQuery', percentage: 60 },
+];

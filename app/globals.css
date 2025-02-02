@@ -42,8 +42,7 @@
 }
 
 body {
-  height: 100%;
-  overflow: hidden;
+  background: #111111 !important;
 }
 .buttons {
   position: absolute;
@@ -84,19 +83,15 @@ body {
   top: 100%;
 }
 .top-layer--2 {
-  background: #111111;
   transition-delay: 0.6s;
 }
 .top-layer--3 {
-  background: #4169e1;
   transition-delay: 0.4s;
 }
 .top-layer--4 {
-  background: #c06c84;
   transition-delay: 0.2s;
 }
 .top-layer--5 {
-  background: #8a2be2;
   transition-delay: 0.1s;
 }
 

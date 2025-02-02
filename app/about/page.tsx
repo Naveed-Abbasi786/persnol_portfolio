@@ -1,10 +1,17 @@
 "use client";
-import Button from "@/component/button/page";
+import Button from "@/component/button";
 import Image from "next/image";
 import React from "react";
 import ProfileImage from "@/public/assets/img/profile.jpg";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { skills } from "@/constant/data";
+import SkillsProgressLoader from "@/component/skillsProgressLoader";
 
 export default function page() {
+  const selectedColor = useSelector(
+    (state: RootState) => state.color.selectedColor,
+  );
   const PersonalInfo: string = JSON.stringify([
     { firstName: "Steve" },
     { lastName: "Milner" },
@@ -37,7 +44,7 @@ export default function page() {
     alert("S");
   };
   return (
-    <div className="h-fit w-full bg-[#111111]">
+    <div className="h-full w-full bg-[#111111]">
 
 
       <div className="md:flex hidden h-[210px] flex-col items-center justify-center p-8">
@@ -48,11 +55,13 @@ export default function page() {
         </div>
         <div className="absolute top-16 flex">
           <h1 className="text-center font-Open_Sans text-[56px] !font-extrabold text-white">
-            ABOUT <span className="text-[#ffb400]">ME</span>
+            ABOUT <span className="text-[#ffb400]" style={{color:selectedColor}}>ME</span>
           </h1>
         </div>
       </div>
 
+
+{/* Mobile */}
       <div className="flex md:hidden  w-full justify-center items-center ">
             <Image
               src={ProfileImage}
@@ -63,15 +72,15 @@ export default function page() {
             />
           </div>
 
-      <div className="flex h-fit w-full items-center justify-center">
-        <div className="grid h-full w-[86%] grid-cols-1 lg:grid-cols-2">
+      <section className="flex h-fit mb-5 w-full items-center justify-center">
+        <div className="grid h-full w-[83%]  grid-cols-1 lg:grid-cols-2">
           <div className="p-6">
             <h1 className="font-Poppins text-[26px] font-semibold uppercase leading-[31.2px] tracking-wide text-white">
               Persnol Infos{" "}
             </h1>
 
-            <div className="grid h-full w-full grid-cols-2">
-              <div className="flex flex-col gap-2 pt-6">
+            <div className="grid h-full w-full mt-3 grid-cols-2">
+              <div className="flex flex-col ">
                 {parsedInfo
                   .slice(0, 5)
                   .map((item: PersonalInfoType, index: number) => {
@@ -87,7 +96,8 @@ export default function page() {
                       </div>
                     );
                   })}
-                <div className="mt-12 w-[90%] md:mt-0">
+
+                <div className="mt-12 w-[90%] md:mt-12">
                   <Button
                     text="Download CV"
                     oNClick={downloandNow}
@@ -96,7 +106,7 @@ export default function page() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2 pt-6">
+              <div className="flex flex-col">
                 {parsedInfo
                   .slice(5)
                   .map((item: PersonalInfoType, index: number) => {
@@ -117,10 +127,10 @@ export default function page() {
             </div>
           </div>
 
-          <div className="mb-6  grid grid-cols-2 gap-8">
+          <div className="mb-6 grid grid-cols-2 gap-4">
             {ExperinceData.map((val, idx) => (
-              <div key={idx} className="flex  md:h-[180px] h-[130px] col-span-1 flex-col items-start justify-center rounded-sm border-2 border-[#252525]">
-                <h1 className="ml-7 flex justify-start font-Open_Sans lg:text-[47px] md:text-[40px] text-[35px] font-bold text-[#ffb400]">
+              <div key={idx} className="flex md:h-[160px] h-[120px] col-span-1 flex-col items-start justify-center rounded-sm border-2 border-[#252525]">
+                <h1 className="ml-7 flex justify-start font-Open_Sans lg:text-[47px] md:text-[40px] text-[35px] font-bold" style={{color:selectedColor}}>
                   {val.years} <span className="block lg:text-[36px] md:text-[33px] text-[30px]">+</span>
                 </h1>
                 <div className="flex items-center justify-center md:ml-0 md:mb-0  ml-8 gap-3 md:px-10 px-0 leading-6">
@@ -135,7 +145,21 @@ export default function page() {
 
           
         </div>
+      </section>
+
+
+<section className="w-full h-full">
+<div className="min-h-screen p-10">
+      <h1 className="text-3xl font-bold text-center mb-10 text-[#ffffff]">Skills Progress</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 ">
+        {skills.map((skill, index) => (
+          <SkillsProgressLoader key={index} percentage={skill.percentage} skill={skill.skill} />
+        ))}
       </div>
+    </div>
+</section>
+
+
     </div>
   );
 }

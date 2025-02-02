@@ -17,16 +17,18 @@ export default function chatBot() {
     <div className="">
       {chatbotOpen && <ChatSection />}
 
-      <div onClick={toogleChatBot} className="fixed bg-white bottom-10 right-4">
+      <div onClick={toogleChatBot} 
+      style={{backgroundColor:selectedColor}}
+      className="fixed p-2 rounded-full bottom-10 right-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-16 w-16"
+          className="h-12 w-12"
           viewBox="0 0 1024 1024"
           id="chatbot"
         >
           <path
             fill="none"
-            stroke={selectedColor}
+            stroke='#ffff'
             strokeMiterlimit="10"
             strokeWidth="20"
             d="m577.27 804.78-41.85.78-166.87 110.62c-.57.41-1.36 0-1.36-.7V804.34h-81.51c-59 0-106.81-47.82-106.81-106.81V394.45c0-58.99 47.81-106.81 106.81-106.81H738.33c58.99 0 106.81 47.82 106.81 106.81v303.08c0 58.99-47.82 106.81-106.81 106.81l-43.64.44H577.27z"
@@ -36,7 +38,7 @@ export default function chatBot() {
             cy="448.2"
             r="61.34"
             fill="none"
-            stroke={selectedColor}
+            stroke='#ffff'
             strokeMiterlimit="10"
             strokeWidth="20"
           ></circle>
@@ -45,13 +47,13 @@ export default function chatBot() {
             cy="448.2"
             r="61.34"
             fill="none"
-            stroke={selectedColor}
+            stroke='#ffff'
             strokeMiterlimit="10"
             strokeWidth="20"
           ></circle>
           <path
             fill="none"
-            stroke={selectedColor}
+            stroke='#ffff'
             
             strokeMiterlimit="10"
             strokeWidth="20"
@@ -62,13 +64,13 @@ export default function chatBot() {
             cy="149.59"
             r="41.94"
             fill="none"
-            stroke={selectedColor}
+            stroke='#ffff'
             strokeMiterlimit="10"
             strokeWidth="20"
           ></circle>
           <path
             fill="none"
-            stroke={selectedColor}
+            stroke='#ffff'
             strokeMiterlimit="10"
             strokeWidth="20"
             d="M509.54 244.21v-52.68"
